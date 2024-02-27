@@ -10,8 +10,12 @@ public class HomePageTests extends TestBase {
     @BeforeMethod
     public void ensurePrecondition() {
         if (!isHomeComponentPresent()) {
-            click(By.cssSelector("[href='/home']"));
+            clickOnHomeLink();
         }
+    }
+
+    private void clickOnHomeLink() {
+        click(By.cssSelector("[href='/home']"));
     }
 
     @Test
@@ -19,9 +23,4 @@ public class HomePageTests extends TestBase {
 //        System.out.println("Home component is " + isHomeComponentPresent());
         Assert.assertTrue(isHomeComponentPresent());
     }
-
-    public boolean isHomeComponentPresent() {
-        return isElementPresent(By.cssSelector("div:nth-child(2)>div>div>h1"));
-    }
-
 }
