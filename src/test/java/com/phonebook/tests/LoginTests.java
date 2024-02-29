@@ -1,5 +1,6 @@
 package com.phonebook.tests;
 
+import com.phonebook.models.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -8,29 +9,29 @@ public class LoginTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-        if (!isLoginLinkPresent()) {
-            clickOnSignOutButton();
+        if (!app.getUser().isLoginLinkPresent()) {
+            app.getUser().clickOnSignOutButton();
         }
     }
 
     @Test
     public void loginPositiveTest() {
-        clickOnLoginLink();
-        fillLoginRegisterForm(new User()
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillLoginRegisterForm(new User()
                 .setEmail("john1@gm.com")
                 .setPassword("Qwerty123$"));
-        clickOnLoginButton();
+        app.getUser().clickOnLoginButton();
         // assert Sign out is present
-        Assert.assertTrue(isSignOutButtonPresent());
+        Assert.assertTrue(app.getUser().isSignOutButtonPresent());
     }
 
     @Test
     public void loginNegativeTestWithoutEmail() {
-        clickOnLoginLink();
-        fillLoginRegisterForm(new User()
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillLoginRegisterForm(new User()
                 .setPassword("Qwerty123$"));
-        clickOnLoginButton();
+        app.getUser().clickOnLoginButton();
         // assert Sign out is present
-        Assert.assertTrue(isAlertAppears());
+        Assert.assertTrue(app.getUser().isAlertAppears());
     }
 }
