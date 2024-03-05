@@ -8,11 +8,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.time.Duration;
 
 public class ApplicationManager {
-    static WebDriver webDriver;
+    WebDriver webDriver;
     String browser;
-    static UserHelper user;
-    static ContactHelper contact;
-    static HomePageHelper homePage;
+    UserHelper user;
+    ContactHelper contact;
+    HomePageHelper homePage;
 
     public ApplicationManager(String browser) {
         this.browser = browser;

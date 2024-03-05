@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 public class TestBase {
 
-    public final ApplicationManager app = new ApplicationManager(System.getProperty("browser", Browser.CHROME.browserName()));
+    public final static ApplicationManager app = new ApplicationManager(System.getProperty("browser", Browser.CHROME.browserName()));
 
     Logger logger = LoggerFactory.getLogger(TestBase.class);
 
